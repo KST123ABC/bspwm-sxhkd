@@ -6,14 +6,14 @@
 super + Return
 	termite
 
-# program launcher
+# program launcher (requires package 'rofi', default is dmenu)
 super + space
 	rofi -show run
 alt + Tab
 	rofi -show window
 
 
-# make sxhkd reload its configuration files:
+# make sxhkd reload its configuration files (nice for testing out keybd config)
 super + Escape
 	pkill -USR1 -x sxhkd
 
@@ -21,7 +21,7 @@ super + Escape
 # bspwm hotkeys
 #
 
-# quit bspwm normally
+# quit bspwm normally (bring ya back to tty)
 super + alt + Escape
 	bspc quit
 
@@ -124,14 +124,14 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 
-# brightness control
+# brightness control (int is the increment/decrement value)
 XF86MonBrightnessDown
 	xbacklight -dec 5
 XF86MonBrightnessUp
 	xbacklight -inc 5
 
 
-# volume control
+# volume controls (Requires package Alsamixer)
 XF86AudioRaiseVolume
 	amixer sset Master 1%+ unmute
 XF86AudioLowerVolume
@@ -146,10 +146,10 @@ XF86AudioMute
 super + b
 	bspc desktop -B
 
-# lock
+# lock (using i3lock-fancy from github)
 ctrl + alt + l
 	i3lock-fancy -gpf Iosevka-Bold
 
-# scrot
+# scrot (lazy screen caps)
 ctrl + @F12
 	scrot -e 'mv $f ~/Pictures/'
